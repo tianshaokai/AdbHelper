@@ -67,8 +67,9 @@ class ActivityState : AbstractState<ActivityLogic>() {
             //val desktop = FileSystemView.getFileSystemView().homeDirectory.path.pathSeparator()
             //screenshotFile = File(desktop, "${Calendar.getInstance().timeInMillis}.png")
 
+            val downloadPath = "/Users/xiaobao/Downloads/screen.png"
             ComposeToast.show("正在截取屏幕, 请稍后..")
-            val command = "adb exec-out screencap -p > \"${tempScreenshotFile.canonicalPath.pathSeparator()}\"".formatAdbCommand(device)
+            val command = "adb exec-out screencap -p > \"${downloadPath}\"".formatAdbCommand(device)
             println(command)
             ShellUtils.shell(command = command) { success, error ->
                 if (error.isNotBlank() || success.isNotBlank()) {
